@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import App from './App.js'
 import "./../styles/App.css";
 
 function ListItem(props) {
@@ -9,12 +10,13 @@ function ListItem(props) {
         setEditedItem(evt.target.value);
 
     };
-    const savededitItem = (editedValue, itemiIdx) => {
+    const savedItem = (editedValue, itemIdx) => {
         props.edithandler(editedItem, props.idx)
         setEditMode(false);
     }
     return (
         <div className="List">
+            {props.data}
             {editMode ?
                 (<>
                     <textarea
@@ -23,12 +25,16 @@ function ListItem(props) {
                         placeholder="Edit task"
                         value={editedItem}></textarea>
                     <button className="saveTask"
-                        onClick={savededitItem}
+                        onClick={savedItem}
                         >save task</button>
                 </>
                 ) : (
                     <>
-                        {props.item}
+                        {
+                            props.data,
+                        props.item
+                        
+                        }
                         <button className="edit"
                             onClick={() => { setEditMode(true) }}>edit</button>
                         <button className="delete"
@@ -38,3 +44,4 @@ function ListItem(props) {
         </div>
     )
 }
+export default ListItem;

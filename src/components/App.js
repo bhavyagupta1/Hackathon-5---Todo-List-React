@@ -14,7 +14,7 @@ function App() {
 	}
 	const newItemChanged = (evt) => {
 		console.log(evt.target.value);
-		setnewItem(evt.terget.value);
+		setnewItem(evt.target.value);
 	};
 	const deletehandeler = (itemIdx) => {
 		items.splice(itemIdx, 1);
@@ -28,18 +28,24 @@ function App() {
 	return (
 		<div id="main">
 			<textarea id="task"
-				onChange={newItemChanged} placeholder="Item" 
+				onChange={newItemChanged} placeholder="Item"
 				value={newItem}></textarea>
 			<button id="btn"
 				onClick={addItem} >Add Item</button>
-			{items.map((item, idx) => {
-				<ListItem
-					item={item}
-					key={`${item} _${idx}`}
-					idx={idx}
-					edithandler={edithandler} deletehandeler={deletehandeler}></ListItem>
-			}
-			)
+			{
+			
+                
+
+				items.map((item, idx) => {
+					
+					<ListItem
+					    data= "sdhbvh"
+						item={item}
+						key={`${item} _${idx}`}
+						idx={idx}
+						edithandler={edithandler} deletehandeler={deletehandeler}></ListItem>
+				}
+				)
 
 			}
 		</div>
