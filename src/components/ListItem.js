@@ -15,8 +15,8 @@ function ListItem(props) {
         setEditMode(false);
     }
     return (
-        <div className="List">
-            {props.data}
+        <div className="list">
+
             {editMode ?
                 (<>
                     <textarea
@@ -26,19 +26,18 @@ function ListItem(props) {
                         value={editedItem}></textarea>
                     <button className="saveTask"
                         onClick={savedItem}
-                        >save task</button>
+                        disabled={editedItem.trim().length ===0}>save task</button>
                 </>
                 ) : (
                     <>
                         {
-                            props.data,
-                        props.item
-                        
+                            props.item
+
                         }
                         <button className="edit"
                             onClick={() => { setEditMode(true) }}>edit</button>
                         <button className="delete"
-                            onClick={() => props.deletehandler(props.idx)}>delete</button>
+                            onClick={() => props.deletehandeler(props.idx)}>delete</button>
                     </>
                 )}
         </div>

@@ -13,7 +13,7 @@ function App() {
 		setnewItem("");
 	}
 	const newItemChanged = (evt) => {
-		console.log(evt.target.value);
+		//console.log(evt.target.value);
 		setnewItem(evt.target.value);
 	};
 	const deletehandeler = (itemIdx) => {
@@ -31,20 +31,22 @@ function App() {
 				onChange={newItemChanged} placeholder="Item"
 				value={newItem}></textarea>
 			<button id="btn"
-				onClick={addItem} >Add Item</button>
+				onClick={addItem} 
+				disabled={newItem.trim().length ===0}>Add Item</button>
 			{
 			
                 
 
-				items.map((item, idx) => {
+				items.map((item, idx) => (
 					
 					<ListItem
-					    data= "sdhbvh"
+					    
 						item={item}
+						
 						key={`${item} _${idx}`}
 						idx={idx}
-						edithandler={edithandler} deletehandeler={deletehandeler}></ListItem>
-				}
+						edithandler={edithandler} deletehandeler={deletehandeler}/>
+				)
 				)
 
 			}
